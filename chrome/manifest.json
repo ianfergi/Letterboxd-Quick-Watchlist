@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Letterboxd Quick Watchlist",
+  "version": "1.0",
+  "description": "Right-click any selected movie title to search Letterboxd and add it straight to your watchlist.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://letterboxd.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
